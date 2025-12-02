@@ -1,6 +1,6 @@
 # Question 7
 answer_7 = """
-SELECT m2.title AS title,
+SELECT m2.title AS title, 
        ROUND((s1.embedding <=> s2.embedding)::numeric, 5) AS distance
 FROM movies m1
 JOIN synopses s1 ON m1.id = s1.movie_id
@@ -11,7 +11,11 @@ WHERE m1.title = 'The Insatiable'
   AND m2.id != m1.id
 ORDER BY distance ASC, title ASC
 LIMIT 10
-"""
+""" 
+# get each title and perform the cosine rounding function for the embeddings to get each distance
+#look at the movies, get the synonses and check our constraints on release year and also make sure we don't compare the movie with itself
+#do all of the little things like sorting and getting the top 10 items
+
 
 # Question 8
 answer_8 = """
@@ -37,3 +41,6 @@ FROM (
 ORDER BY distance ASC, comedy ASC, horror ASC
 LIMIT 15
 """
+# get the comedy and horror movies, get the synopses and check our constraints on release year and also make sure we don't compare the movie with itself
+#sorting and getting the top 15 items
+#use distinct on to get the top 15 items
